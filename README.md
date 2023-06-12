@@ -7,3 +7,4 @@ Laravel based web application, showing Agro tuor to visitors
 -   **[Junior Kaskazi](https://github.com/Juniorkaskazi)**
 -   **[Robin Shango](https://github.com/Pnoccio)**
 -   **[James Samuel](https://github.com/James-Samuel)**
+-   **[Fred Makaranga](https://github.com/freddy777-01)**
