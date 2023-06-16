@@ -24,23 +24,23 @@ CREATE TABLE `user_farms` (
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (farm_id) REFERENCES farms (id)
 );
-CREATE TABLE `users` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `name` varchar(255) NOT NULL,
-    `email` varchar(100) NOT NULL,
-    `email_verified_at` timestamp,
-    `password` varchar(255) DEFAULT NULL,
-    `two_factor_secret` text,
-    `two_factor_recovery_codes` text,
-    `two_factor_confirmed_at` timestamp,
-    `remember_token` varchar(100),
-    `current_team_id` int,
-    `profile_photo_path` varchar(2048),
-    `phone_no` int(10) DEFAULT NULL,
-    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-    `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE `users` (
+--     `id` int NOT NULL AUTO_INCREMENT,
+--     `name` varchar(255) NOT NULL,
+--     `email` varchar(100) NOT NULL,
+--     `email_verified_at` timestamp,
+--     `password` varchar(255) DEFAULT NULL,
+--     `two_factor_secret` text,
+--     `two_factor_recovery_codes` text,
+--     `two_factor_confirmed_at` timestamp,
+--     `remember_token` varchar(100),
+--     `current_team_id` int,
+--     `profile_photo_path` varchar(2048),
+--     `phone_no` int(10) DEFAULT NULL,
+--     `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+--     `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+--     PRIMARY KEY (id)
+-- );
 CREATE TABLE `reviews` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `farm` int(11) NOT NULL,
