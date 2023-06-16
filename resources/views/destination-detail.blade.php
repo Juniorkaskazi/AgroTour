@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-		
-		
+
+
 		<!-- ======================= Start Banner ===================== -->
 		<section class="page-title-banner" style="background-image:url(assets/img/banner.jpg);">
 			<div class="container">
@@ -20,12 +20,12 @@
 			</div>
 		</section>
 		<!-- ======================= End Banner ===================== -->
-		
+
 		<!-- ======================= Start Detail Header ===================== -->
 		<section class="profile-header-nav padd-0 bb-1">
 			<div class="container">
 				<div class="row">
-					
+
 					<div class="col-md-8 col-sm-8">
 						<div class="tab" role="tabpanel">
 							<!-- Nav tabs -->
@@ -38,28 +38,28 @@
 							<!-- Tab panes -->
 						</div>
 					</div>
-					
+
 					<div class="col-md-4 col-sm-4">
 						<div class="fl-right">
-							<button type="button" class="btn theme-btn"><span class="fa fa-paper-plane mrg-r-10"></span>Send Message</button>
+							<button type="button" class="btn theme-btn"><span class="fa fa-paper-plane mrg-r-10"></span><a href="#contacts">Send Message</a></button>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</section>
 		<!-- ======================= End Detail Header ===================== -->
-		
+
 		<!-- ======================= Start Detail ===================== -->
 		<section class="tr-single-detail gray-bg">
 			<div class="container">
 				<div class="row">
-				
+
 					<div class="col-md-8 col-sm-12">
 						<div class="tab-content tabs">
-							
+
 							<div role="tabpanel" class="tab-pane fade in active" id="Overview">
-								
+
 								<!-- Overview -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -68,7 +68,7 @@
 										</div>
 										<div class="tr-single-body">
 											<div class="row">
-											
+
 												<div class="col-md-6 col-sm-6">
 													<div class="list-thumb-box">
 														<img src="assets/img/destination/des-6.jpg" class="img-responsive" alt="" />
@@ -76,7 +76,7 @@
 														<h5>4.8/<sub class="theme-cl">5</sub></h5>
 													</div>
 												</div>
-												
+
 												<div class="col-md-6 col-sm-6">
 													<div class="list-overview-detail">
 														<h5>Bali, Indonesia</h5>
@@ -93,7 +93,7 @@
 																	</a>
 																</div>
 															</li>
-															
+
 															<li>
 																<div class="icon-box-icon-block">
 																	<a href="#">
@@ -106,7 +106,7 @@
 																	</a>
 																</div>
 															</li>
-															
+
 															<li>
 																<div class="icon-box-icon-block">
 																	<a href="#">
@@ -119,7 +119,7 @@
 																	</a>
 																</div>
 															</li>
-															
+
 															<li>
 																<div class="icon-box-icon-block">
 																	<a href="#">
@@ -132,7 +132,7 @@
 																	</a>
 																</div>
 															</li>
-															
+
 															<li>
 																<div class="icon-box-icon-block">
 																	<a href="#">
@@ -145,16 +145,16 @@
 																	</a>
 																</div>
 															</li>
-															
+
 														</ul>
 													</div>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- Overview -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -215,13 +215,13 @@
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
 													</div>
-													<!-- /row -->	
-												</div>			
+													<!-- /row -->
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- Description -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -235,7 +235,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- Amenities -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -266,7 +266,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- Location -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -274,16 +274,16 @@
 											<h4><i class="ti-map-alt"></i>Location</h4>
 										</div>
 										<div class="tr-single-body">
-											<div class="height-350" id="singleMap" data-latitude="40.712776" data-longitude="-74.005974" data-mapTitle="Our Location"></div>	
+											<div class="height-350" id="singleMap" data-latitude="40.712776" data-longitude="-74.005974" data-mapTitle="Our Location"></div>
 										</div>
 									</div>
 								</div>
-								
+
 							</div>
-							
+
 							<!-- ============ Features =================== -->
 							<div role="tabpanel" class="tab-pane fade in" id="Features">
-								
+
 								<!-- About Features -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -295,7 +295,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- Extra features -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -303,7 +303,7 @@
 											<h4><i class="ti-thumb-up"></i>Extra Features</h4>
 										</div>
 										<div class="tr-single-body">
-											
+
 											<ul class="simple-features-list">
 												<li>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</li>
 												<li>Minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
@@ -314,16 +314,16 @@
 												<li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</li>
 												<li>Pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes.</li>
 											</ul>
-											
+
 										</div>
 									</div>
 								</div>
-								
+
 							</div>
-							
+
 							<!-- ============ Review =================== -->
 							<div role="tabpanel" class="tab-pane fade in" id="Review">
-								
+
 								<!-- Review -->
 								<div class="row">
 									<div class="tr-single-box">
@@ -331,13 +331,13 @@
 											<h4><i class="ti-write"></i>All Review</h4>
 										</div>
 										<div class="tr-single-body">
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-1.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>4.7/<span>5</span></p>
@@ -351,15 +351,15 @@
 														<a href="#"><i class="ti-comment"></i>52</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-2.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>4.4/<span>5</span></p>
@@ -373,15 +373,15 @@
 														<a href="#"><i class="ti-comment"></i>78</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-3.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>5.0/<span>5</span></p>
@@ -395,15 +395,15 @@
 														<a href="#"><i class="ti-comment"></i>47</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-4.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>4.9/<span>5</span></p>
@@ -417,15 +417,15 @@
 														<a href="#"><i class="ti-comment"></i>36</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-5.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>4.8/<span>5</span></p>
@@ -439,15 +439,15 @@
 														<a href="#"><i class="ti-comment"></i>70</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
 													<img src="assets/img/user-6.jpg" class="img-responsive img-circle" alt="" />
 												</div>
-												
+
 												<div class="review-box-content">
 													<div class="reviewer-rate">
 														<p><i class="fa fa-star cl-warning"></i>4.7/<span>5</span></p>
@@ -461,16 +461,16 @@
 														<a href="#"><i class="ti-comment"></i>140</a>
 													</div>
 												</div>
-												
+
 											</div>
-											
+
 										</div>
 									</div>
-								
+
 								</div>
-								
+
 							</div>
-							
+
 							<!-- ============ Photos =================== -->
 							<div role="tabpanel" class="tab-pane fade in" id="Photos">
 								<div class="row">
@@ -530,19 +530,19 @@
 									</div>
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
-				
+
 					<!-- Sidebar Start -->
 					<div class="col-md-4 col-sm-12">
-						
+
 						<!-- Tourist Overview -->
 						<div class="tr-single-box">
 							<div class="tr-single-header">
 								<h4>Bali, Indonesia<sup class="cl-success">NewYork</sup></h4>
 							</div>
-							
+
 							<div class="tr-single-body">
 								<ul class="extra-service half">
 									<li>
@@ -557,7 +557,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -570,7 +570,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -583,7 +583,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -596,7 +596,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -609,7 +609,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -622,12 +622,12 @@
 											</a>
 										</div>
 									</li>
-									
+
 								</ul>
 							</div>
-							
+
 						</div>
-						
+
 						<!-- overview & booking Form -->
 						<div class="tr-single-box">
 							<div class="tr-single-header">
@@ -649,7 +649,7 @@
 							</div>
 							<div class="tr-single-body">
 								<form class="book-form">
-								
+
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="form-group">
@@ -664,7 +664,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="row">
 										<div class="col-xs-6">
 											<div class="form-group">
@@ -679,7 +679,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="row">
 										<div class="col-xs-6">
 											<div class="form-group">
@@ -712,14 +712,14 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="row">
 										<div class="col-xs-12">
 											<button type="button" class="btn btn-default full-width text-left" data-toggle="collapse" data-target="#extra-service">Choose Extra Amenities<i class="ti-settings fl-right mrg-top-5"></i></button>
 											<div id="extra-service" class="collapse">
 												<div class="extra-features">
 													<ul class="extra-service half">
-													
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="1">
@@ -727,7 +727,7 @@
 															</span>
 															Satellite TV
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="2">
@@ -735,7 +735,7 @@
 															</span>
 															Coffeemaker
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="3">
@@ -743,7 +743,7 @@
 															</span>
 															Luxury Bedding
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="4">
@@ -751,7 +751,7 @@
 															</span>
 															Swimming Pool
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="5">
@@ -759,7 +759,7 @@
 															</span>
 															Free Parking
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="6">
@@ -767,7 +767,7 @@
 															</span>
 															Free Wifi
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="7">
@@ -775,7 +775,7 @@
 															</span>
 															Pets Allow
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="8">
@@ -783,45 +783,45 @@
 															</span>
 															Elevator
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="9">
 																<label for="9"></label>
 															</span>
-															Spa/Sauna 
+															Spa/Sauna
 														</li>
-														
+
 														<li>
 															<span class="custom-checkbox">
 																<input type="checkbox" id="11">
 																<label for="11"></label>
 															</span>
-															Security cameras 
+															Security cameras
 														</li>
-														
+
 													</ul>
 												</div>
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="row">
 										<div class="col-xs-12 mrg-top-15">
-											<a href="#" class="btn btn-arrow theme-btn full-width">Book now</a>		
+											<a href="#" class="btn btn-arrow theme-btn full-width">Book now</a>
 										</div>
 									</div>
-									
+
 								</form>
 							</div>
 						</div>
-						
+
 						<!-- Share this -->
 						<div class="tr-single-box">
 							<div class="tr-single-header">
 								<h4>Share this</h4>
 							</div>
-							
+
 							<div class="tr-single-body">
 								<ul class="extra-service half">
 									<li>
@@ -836,7 +836,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -849,7 +849,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -862,7 +862,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -875,7 +875,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -888,7 +888,7 @@
 											</a>
 										</div>
 									</li>
-									
+
 									<li>
 										<div class="icon-box-icon-block">
 											<a href="#">
@@ -901,18 +901,18 @@
 											</a>
 										</div>
 									</li>
-									
+
 								</ul>
 							</div>
-							
+
 						</div>
-						
+
 						<!-- Share this -->
 						<div class="tr-single-box">
 							<div class="tr-single-header">
 								<h4>Similar Item</h4>
 							</div>
-							
+
 							<div class="tr-single-body">
 								<div class="single-side-slide">
 									<!-- Single Destination -->
@@ -929,10 +929,10 @@
 													<h4 class="destination-place">
 														<a href="destination-detail.html">Bali, Indonesia</a>
 													</h4>
-													<a href="#" class="list-like left"><i class="ti-heart"></i></a>	
+													<a href="#" class="list-like left"><i class="ti-heart"></i></a>
 												</figure>
 											</div>
-											
+
 											<div class="entry-meta">
 												<div class="meta-item meta-rating">
 													<i class="fa fa-star"></i>
@@ -958,10 +958,10 @@
 													</div>
 												</div>
 											</div>
-											
+
 										</article>
 									</div>
-									
+
 									<!-- Single Destination -->
 									<div class="col-md-4 col-sm-6">
 										<article class="destination-box style-1">
@@ -979,7 +979,7 @@
 													<a href="#" class="list-like left"><i class="ti-heart"></i></a>
 												</figure>
 											</div>
-											
+
 											<div class="entry-meta">
 												<div class="meta-item meta-rating">
 													<i class="fa fa-star"></i>
@@ -1005,10 +1005,10 @@
 													</div>
 												</div>
 											</div>
-											
+
 										</article>
 									</div>
-									
+
 									<!-- Single Destination -->
 									<div class="col-md-4 col-sm-6">
 										<article class="destination-box style-1">
@@ -1026,7 +1026,7 @@
 													<a href="#" class="list-like left"><i class="ti-heart"></i></a>
 												</figure>
 											</div>
-											
+
 											<div class="entry-meta">
 												<div class="meta-item meta-rating">
 													<i class="fa fa-star"></i>
@@ -1052,44 +1052,44 @@
 													</div>
 												</div>
 											</div>
-											
+
 										</article>
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 					<!-- /col-md-4 -->
 				</div>
 			</div>
 		</section>
-		<!-- ======================= End Detail ===================== -->	
-		
+		<!-- ======================= End Detail ===================== -->
+
 		<!-- ============== Before Footer ====================== -->
 		<section class="before-footer bt-1 bb-1">
-			<div class="container-fluid padd-0 full-width">
-			
+			<div class="container-fluid padd-0 full-width" id="contacts">
+
 				<div class=" col-md-2 col-sm-2 br-1 mbb-1">
 					<div class="data-flex">
 						<h4>Contact Us!</h4>
 					</div>
 				</div>
-				
+
 				<div class="col-md-3 col-sm-3 br-1 mbb-1">
 					<div class="data-flex text-center">
 					53 Boulevard Victor Hugo 44200 Nantes, France
 					</div>
 				</div>
-				
+
 				<div class="col-md-3 col-sm-3 br-1 mbb-1">
 					<div class="data-flex text-center">
 						<span class="d-block mrg-bot-0">06 52 52 20 30</span>
 						<a href="#" class="theme-cl"><strong>hello@gmail.com</strong></a>
 					</div>
 				</div>
-				
+
 				<div class="col-md-4 col-sm-4 padd-0">
 					<div class="data-flex padd-0">
 						<ul class="social-share">
@@ -1100,10 +1100,10 @@
 						</ul>
 					</div>
 				</div>
-				
+
 			</div>
 		</section>
 		<!-- =================== Before Footer ====================== -->
-		
+
 
         @endsection
