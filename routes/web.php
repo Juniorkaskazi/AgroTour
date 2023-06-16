@@ -4,7 +4,9 @@ use App\Http\Controllers\UI\UIController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [UIController::class, 'homePage']);
+// Route::get('/', [UIController::class, 'homePage']);
+Route::get('/', [\Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('/', [\Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class, 'store']);
 
 Route::get('/about-us', [UIController::class, 'aboutUs']);
 
@@ -51,6 +53,6 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('index');
     })->name('dashboard');
 });
