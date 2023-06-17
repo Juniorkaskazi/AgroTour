@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class user_farms extends Model
+class userFarms extends Model
 {
     use HasFactory;
     protected $table = "user_farms";

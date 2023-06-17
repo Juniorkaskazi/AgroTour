@@ -2,7 +2,17 @@
 
 @section('content')
 
-
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	{{ session('success') }}
+</div>
+@elseif(session('failed'))
+<div class="alert alert-danger" role="alert">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	{{ session('failed') }}
+</div>
+@endif
 		<!-- ======================= Start Banner ===================== -->
 		<section class="page-title-banner" style="background-image:url(assets/img/banner.jpg);">
 			<div class="container">
@@ -648,19 +658,39 @@
 								</div>
 							</div>
 							<div class="tr-single-body">
-								<form class="book-form">
-
+								<form class="book-form" method='POST' action='{{ url('booking') }}'>
+                                    @csrf
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label>User Name</label>
+												<input type="text" name="user_name" id="userName" class="form-control" value="" placeholder="user name">
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label>Email</label>
+												<input type="email" name="email" id="email" class="form-control" value="" placeholder="email">
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label>Phone</label>
+												<input type="tel" name="phone_no" id="phone_no" class="form-control" value="" placeholder="phone">
+											</div>
+										</div>
+									</div>
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="form-group">
 												<label>Check In</label>
-												<input type="text" name="checkin" id="checkin" class="form-control" value="Check in">
+												<input type="date" name="check_in" id="check_in" class="form-control" value="" placeholder="check in">
 											</div>
 										</div>
 										<div class="col-xs-12">
 											<div class="form-group">
 												<label>Check Out</label>
-												<input type="text" name="checkout" id="checkout" class="form-control" value="Check out">
+												<input type="date" name="check_out" id="check_out" class="form-control" value="" placeholder="check out">
 											</div>
 										</div>
 									</div>
@@ -685,7 +715,7 @@
 											<div class="form-group">
 												<label>Room</label>
 												<div class="sl-side">
-													<select class="wide form-control">
+													<select class="wide form-control" name='room'>
 														<option data-display="Room">1</option>
 														<option value="1">2</option>
 														<option value="2">3</option>
@@ -700,7 +730,7 @@
 											<div class="form-group">
 												<label>Night</label>
 												<div class="sl-side">
-													<select class="wide form-control">
+													<select class="wide form-control" name="name">
 														<option data-display="Night">1</option>
 														<option value="1">2</option>
 														<option value="2">3</option>
@@ -722,7 +752,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="1">
+																<input type="checkbox" id="1" name="amenities[]" value="Satellite TV">
 																<label for="1"></label>
 															</span>
 															Satellite TV
@@ -730,7 +760,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="2">
+																<input type="checkbox" id="2" name="amenities[]" value="Coffeemaker">
 																<label for="2"></label>
 															</span>
 															Coffeemaker
@@ -738,7 +768,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="3">
+																<input type="checkbox" id="3" name="amenities[]" value="Luxury Bedding">
 																<label for="3"></label>
 															</span>
 															Luxury Bedding
@@ -746,7 +776,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="4">
+																<input type="checkbox" id="4" name="amenities[]" value="Swimming Pool">
 																<label for="4"></label>
 															</span>
 															Swimming Pool
@@ -754,7 +784,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="5">
+																<input type="checkbox" id="5" name="amenities[]" value="Free Parking">
 																<label for="5"></label>
 															</span>
 															Free Parking
@@ -762,7 +792,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="6">
+																<input type="checkbox" id="6" name="amenities[]" value="Free Wifi">
 																<label for="6"></label>
 															</span>
 															Free Wifi
@@ -770,7 +800,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="7">
+																<input type="checkbox" id="7" name="amenities[]" value="Pets Allow">
 																<label for="7"></label>
 															</span>
 															Pets Allow
@@ -778,7 +808,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="8">
+																<input type="checkbox" id="8" name="amenities[]" value="Elevator">
 																<label for="8"></label>
 															</span>
 															Elevator
@@ -786,7 +816,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="9">
+																<input type="checkbox" id="9" name="amenities[]" value="Spa/Sauna">
 																<label for="9"></label>
 															</span>
 															Spa/Sauna
@@ -794,7 +824,7 @@
 
 														<li>
 															<span class="custom-checkbox">
-																<input type="checkbox" id="11">
+																<input type="checkbox" id="11" name="amenities[]" value="Security cameras">
 																<label for="11"></label>
 															</span>
 															Security cameras
@@ -808,7 +838,7 @@
 
 									<div class="row">
 										<div class="col-xs-12 mrg-top-15">
-											<a href="#" class="btn btn-arrow theme-btn full-width">Book now</a>
+                                            <button type="submit" class="btn btn-arrow theme-btn">Book now</button>
 										</div>
 									</div>
 

@@ -11,6 +11,8 @@ class review extends Model
     use HasFactory;
     protected $table = "reviews";
 
+    public $timestamps = false;
+
     protected $fillable = [
         'rating',
         'comment',

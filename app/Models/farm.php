@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class farm extends Model
+class farm extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected $table = "farms";
 
@@ -31,6 +33,10 @@ class farm extends Model
         'apdated_at' => 'datetime:Y-m-d',
     ];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('farm_photos');
+    }
     public function reservation(): HasMany
     {
         return $this->hasMany(reservation::class);

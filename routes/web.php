@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UI\UIController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,3 +55,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::post('booking', [BookingController::class, 'store']);

@@ -14,4 +14,5 @@ class amenity extends Model
     protected $fillable = [
         'name'
     ];
+    public $timestamps = false;
 }

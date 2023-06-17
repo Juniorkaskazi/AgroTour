@@ -1,7 +1,7 @@
 -- Table structure for table `BlogPost`
 --
-DROP DATABASE IF EXISTS `agrotourism`;
-CREATE DATABASE `agrotourism`;
+-- DROP DATABASE IF EXISTS `agrotourism`;
+-- CREATE DATABASE `agrotourism`;
 CREATE TABLE `farms` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(255) DEFAULT NULL,
@@ -47,8 +47,9 @@ CREATE TABLE `reviews` (
     `rating` int(5) DEFAULT 0,
     `comment` text DEFAULT NULL,
     `user_name` varchar(50) DEFAULT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
     PRIMARY KEY (id),
-    FOREIGN KEY (farm) REFERENCES farms (id)
+    FOREIGN KEY (farm) REFERENCES farms (id) Free Wifi
 );
 CREATE TABLE `amenities`(
     `id` int(11) NOT NULL AUTO_INCREMENT,

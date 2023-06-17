@@ -10,8 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     use HasApiTokens;
     use HasFactory;
@@ -48,6 +50,17 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@femag.com');
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->profile_photo_path == null ? null : $this->profile_photo_path;
+    }
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
