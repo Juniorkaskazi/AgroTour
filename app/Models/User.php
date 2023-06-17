@@ -12,14 +12,17 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements FilamentUser, HasAvatar
+class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -58,7 +61,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->profile_photo_path == null ? null : $this->profile_photo_path;
+        return $this->profile_photo_path == null ? null : $this->getFirstMediaUrl('userImage');
     }
 
     protected $casts = [
@@ -76,6 +79,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function userFarms(): HasMany
     {
-        return $this->hasMany(user_farms::class);
+        return $this->hasMany(userFarms::class);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('userImage')->singleFile();
     }
 }

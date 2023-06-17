@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class UserResource extends Resource
 {
@@ -39,6 +40,12 @@ class UserResource extends Resource
                     ->maxLength(2048),
                 Forms\Components\TextInput::make('phone_no')
                     ->tel(),
+                SpatieMediaLibraryFileUpload::make('image')
+                    ->collection('userImage')
+                    ->preserveFilenames()
+                    ->enableReordering()
+                    ->responsiveImages(true)
+                    ->columnSpanFull(),    
             ]);
     }
 

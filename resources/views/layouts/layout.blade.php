@@ -144,7 +144,7 @@
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
-						<li class="br-right"><a href="javascript:void(0)"  data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a></li>
+						<li class="br-right"><a href="{{ url('/admin/login') }}"><i class="login-icon ti-user"></i>Login</a></li>
 						<li class="sign-up"><a class="btn-signup red-btn" href="tour-grid-sidebar.html"><span class="ti-briefcase"></span>Booking Toor</a></li> 
 					</ul>
 						

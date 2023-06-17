@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\UI\UIController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\pagesController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [UIController::class, 'homePage']);
+Route::get('/', [pagesController::class, 'index']);
 
 Route::get('/about-us', [UIController::class, 'aboutUs']);
 
@@ -25,7 +26,7 @@ Route::get('/tour-grid-slider', [UIController::class, 'tourDetailsSlider']);
 //     return view('tour-grid');
 // });
 
-Route::get('/destination-detail', [UIController::class, 'destination']);
+// Route::get('/destination-detail', [UIController::class, 'destination']);
 
 Route::get('/destination-grid', [UIController::class, 'destinationGrid']);
 
@@ -57,3 +58,6 @@ Route::middleware([
 });
 
 Route::post('booking', [BookingController::class, 'store']);
+Route::post('/findFarm', [pagesController::class, 'findFarm']);
+Route::get('/viewFarm/{farmId}', [pagesController::class, 'viewFarm']);
+Route::get('/destination-detail/', [pagesController::class, 'viewFarm']);

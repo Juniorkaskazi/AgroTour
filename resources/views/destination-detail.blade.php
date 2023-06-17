@@ -19,11 +19,11 @@
 				<div class="row">
 					<div class="tr-list-detail">
 						<div class="tr-list-thumb">
-							<img src="assets/img/user-2.jpg" class="img-responsive img-circle" alt="" />
+							 <img src="{{ $farmGuide->getFirstMediaUrl('userImage')}}" class="img-responsive img-circle" alt="" />
 						</div>
 						<div class="tr-list-info">
-							<h4>Adam G. Gilworm</h4>
-							<p>Canada Tour</p>
+							<h4>{{ $farmGuide->name }}</h4>
+							<p>{{ $farmDetails->location }}</p>
 						</div>
 					</div>
 				</div>
@@ -89,7 +89,6 @@
 
 												<div class="col-md-6 col-sm-6">
 													<div class="list-overview-detail">
-														<h5>Bali, Indonesia</h5>
 														<ul class="extra-service">
 															<li>
 																<div class="icon-box-icon-block">
@@ -98,7 +97,7 @@
 																			<i class=" ti-location-pin"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			Istanbul, Turkey, Newyork, 052 458
+																		{{$farmDetails->location}}
 																		</div>
 																	</a>
 																</div>
@@ -111,7 +110,7 @@
 																			<i class="ti-email"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			destination@gmail.com
+																			{{$farmGuide->email}}
 																		</div>
 																	</a>
 																</div>
@@ -124,14 +123,14 @@
 																			<i class="ti-headphone-alt"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			125 458 75849
+																		{{$farmGuide->phone_no??null}}
 																		</div>
 																	</a>
 																</div>
 															</li>
 
 															<li>
-																<div class="icon-box-icon-block">
+																<!-- <div class="icon-box-icon-block">
 																	<a href="#">
 																		<div class="icon-box-round">
 																			<i class="ti-share"></i>
@@ -140,7 +139,7 @@
 																			110 Share
 																		</div>
 																	</a>
-																</div>
+																</div> -->
 															</li>
 
 															<li>
@@ -150,7 +149,7 @@
 																			<i class="ti-comment-alt"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			22 comments
+																			{{ $farmDetails->review->count() }} comments
 																		</div>
 																	</a>
 																</div>
@@ -175,16 +174,17 @@
 											<div class="row">
 												<div class="col-sm-4">
 													<div id="review_summary">
-														<strong>8.5</strong>
+														<strong>{{ $farmDetails->review->sum('rating')/ 10 }}</strong>
 														<em class="cl-success">Superb</em>
-														<small>Based on 4 reviews</small>
+														<small>Based on all reviews</small>
 													</div>
 												</div>
 												<div class="col-sm-8">
 													<div class="row">
 														<div class="col-lg-10 col-9">
 															<div class="progress">
-																<div class="progress-bar progress-bar-success" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+																<?php $val = (($farmDetails->review->where('rating', 5)->sum('rating') / $farmDetails->review->sum('rating')) * 100) ?>
+																<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{$val}}%" aria-valuenow={{$val}} aria-valuemin="0" aria-valuemax="100"></div>
 															</div>
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
@@ -193,7 +193,8 @@
 													<div class="row">
 														<div class="col-lg-10 col-9">
 															<div class="progress">
-																<div class="progress-bar progress-bar-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+																<?php $val = (($farmDetails->review->where('rating', 4)->sum('rating') / $farmDetails->review->sum('rating')) * 100) ?>
+																<div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{$val}}%" aria-valuenow={{$val}} aria-valuemin="0" aria-valuemax="100"></div>
 															</div>
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
@@ -202,7 +203,8 @@
 													<div class="row">
 														<div class="col-lg-10 col-9">
 															<div class="progress">
-																<div class="progress-bar progress-bar-primary" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+															<?php $val = (($farmDetails->review->where('rating', 3)->sum('rating') / $farmDetails->review->sum('rating')) * 100) ?>
+																<div class="progress-bar progress-bar-primary" role="progressbar" style="width: {{$val}}%" aria-valuenow={{$val}} aria-valuemin="0" aria-valuemax="100"></div>
 															</div>
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
@@ -211,7 +213,8 @@
 													<div class="row">
 														<div class="col-lg-10 col-9">
 															<div class="progress">
-																<div class="progress-bar progress-bar-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+															<?php $val = (($farmDetails->review->where('rating', 2)->sum('rating') / $farmDetails->review->sum('rating')) * 100) ?>
+																<div class="progress-bar progress-bar-danger" role="progressbar" style="width: {{$val}}%" aria-valuenow={{$val}} aria-valuemin="0" aria-valuemax="100"></div>
 															</div>
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
@@ -220,7 +223,8 @@
 													<div class="row">
 														<div class="col-lg-10 col-9">
 															<div class="progress">
-																<div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+															<?php $val = (($farmDetails->review->where('rating', 1)->sum('rating') / $farmDetails->review->sum('rating')) * 100) ?>
+																<div class="progress-bar" role="progressbar" style="width: {{$val}}%" aria-valuenow={{$val}} aria-valuemin="0" aria-valuemax="100"></div>
 															</div>
 														</div>
 														<div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
@@ -239,9 +243,7 @@
 											<h4><i class="ti-files"></i>Description</h4>
 										</div>
 										<div class="tr-single-body">
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus..</p>
-											<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-											<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.</p>
+											{{ $farmDetails->description }}
 										</div>
 									</div>
 								</div>
@@ -254,7 +256,10 @@
 										</div>
 										<div class="tr-single-body">
 											<ul class="amenities third">
-												<li>Satellite TV</li>
+												@for ($i=0; i<= $farmDetails->amenities->count(); $i++)
+													<li>{{$farmDetails->amenities[i]}}</li>
+												@endfor
+												<!-- <li>Satellite TV</li>
 												<li>Coffeemaker</li>
 												<li>Hair Dryer</li>
 												<li>Swimming Pool</li>
@@ -271,7 +276,7 @@
 												<li>Elevator</li>
 												<li>Spa/Sauna</li>
 												<li>Indoor pool </li>
-												<li>Security cameras </li>
+												<li>Security cameras </li> -->
 											</ul>
 										</div>
 									</div>
