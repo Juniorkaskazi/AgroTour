@@ -11,6 +11,13 @@ class userFarms extends Model
     use HasFactory;
     protected $table = "user_farms";
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'user_id',
+        'farm_id'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

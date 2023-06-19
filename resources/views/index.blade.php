@@ -139,7 +139,7 @@
 								<!-- Single Tour -->
 								<div class="tour-box-image">
 									<figure>
-										<a href="tour-detail.html">
+										<a href="/viewFarm/{{ $farmDetail->id }}">
 											<img src="{{ $farmDetail->getFirstMediaUrl('farm_photos') }}" class="img-responsive listing-box-img" alt="" />
 											<div class="list-overlay"></div>
 										</a>
@@ -162,7 +162,8 @@
 										<div class="coauthors">
 											<span class="vcard author">
 												<span class="fn">
-													<a href="#"><img alt="" src="{{ $farm_tourGuides->where('id', $farmDetail->userFarms->user_id)->getFirstMediaUrl('userImage') }}" class="avatar avatar-24" height="24" width="24">{{ $farm_tourGuides->where('id', $farmDetail->userFarms->user_id)->name }}</a>
+													{{ $farm_image->where('id', $farmDetail->id)->first()->getFirstMediaUrl() }}
+													<a href="#"><img alt="" src="{{ $farm_image->where('id', $farmDetail->id)->first()->getFirstMediaUrl() }}" class="avatar avatar-24" height="24" width="24">{{ $farm_tourGuides->where('id', $farmDetail->userFarms()->pluck('user_id'))->get('name') }}</a>
 												</span>
 											</span>
 										</div>
@@ -171,7 +172,7 @@
 										<i class="ti-comment-alt"></i><span>{{ $farmDetail->review->count() }}</span>
 									</div>
 									<div class="meta-item meta-rating fl-right">
-										@for ($i = 0; $i <= $farmDetail->review->rating; $i++)
+										@for ($i = 0; $i <= $farmDetail->review()->get('rating')->first(); $i++)
 										<i class="fa fa-star"></i>
 										@endfor
 									</div>
@@ -227,8 +228,8 @@
 									<img src="{{ $tourGuide->getFirstMediaUrl('userImage') }}" class="img-responsive" alt="" />
 								</div>
 								<div class="guider-detail">
-									<h4>Robin Shango</h4>
-									<h5 class="theme-cl font-bold">Tsh {{$tourGuide->userFarm->price}}/Hour</h5>
+									<h4>{{$tourGuide->pluck('name')[0]}}</h4>
+									<h5 class="theme-cl font-bold">Tsh /Hour</h5>
 								</div>
 							</div>
 						

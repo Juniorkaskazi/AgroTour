@@ -19,11 +19,11 @@
 				<div class="row">
 					<div class="tr-list-detail">
 						<div class="tr-list-thumb">
-							 <img src="{{ $farmGuide->getFirstMediaUrl('userImage')}}" class="img-responsive img-circle" alt="" />
+							 <img src="#" class="img-responsive img-circle" alt="" />
 						</div>
 						<div class="tr-list-info">
-							<h4>{{ $farmGuide->name }}</h4>
-							<p>{{ $farmDetails->location }}</p>
+							<h4>{{ $farmGuide->get('name') }}</h4>
+							<p>{{ $farmDetails->get('location') }}</p>
 						</div>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 																			<i class=" ti-location-pin"></i>
 																		</div>
 																		<div class="icon-box-text">
-																		{{$farmDetails->location}}
+																		{{$farmDetails->get('location')}}
 																		</div>
 																	</a>
 																</div>
@@ -110,7 +110,7 @@
 																			<i class="ti-email"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			{{$farmGuide->email}}
+																			{{$farmGuide->get('email')}}
 																		</div>
 																	</a>
 																</div>
@@ -123,7 +123,7 @@
 																			<i class="ti-headphone-alt"></i>
 																		</div>
 																		<div class="icon-box-text">
-																		{{$farmGuide->phone_no??null}}
+																		{{$farmGuide->get('phone_no')}}
 																		</div>
 																	</a>
 																</div>
@@ -149,7 +149,7 @@
 																			<i class="ti-comment-alt"></i>
 																		</div>
 																		<div class="icon-box-text">
-																			{{ $farmDetails->review->count() }} comments
+																			{{ $farmDetails->count() == [] ? 0 : $farmDetails->count()}} comments
 																		</div>
 																	</a>
 																</div>
@@ -174,7 +174,7 @@
 											<div class="row">
 												<div class="col-sm-4">
 													<div id="review_summary">
-														<strong>{{ $farmDetails->review->sum('rating')/ 10 }}</strong>
+														<strong>{{ ($farmDetails->review()->sum('rating')/ $farmDetails->review->count()) * 10 }}</strong>
 														<em class="cl-success">Superb</em>
 														<small>Based on all reviews</small>
 													</div>
@@ -346,7 +346,7 @@
 											<h4><i class="ti-write"></i>All Review</h4>
 										</div>
 										<div class="tr-single-body">
-
+											 @foreach($farmDetails->review->sortBy('created_at', 'desc')->take(6) as $reviews)
 											<!-- Single Review -->
 											<div class="review-box">
 												<div class="review-thumb">
@@ -355,129 +355,20 @@
 
 												<div class="review-box-content">
 													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>4.7/<span>5</span></p>
+														<p><i class="fa fa-star cl-warning"></i>{{$reviews->rating}}/<span>5</span></p>
 													</div>
 													<div class="review-user-info">
-														<h4>Daniel Dicoss</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
+														<h4>{{$reviews->user_name}}</h4>
+														<p>{{$reviews->comment}}</p>
 													</div>
 													<div class="review-lc text-right">
 														<a href="#"><i class="ti-heart"></i>87</a>
-														<a href="#"><i class="ti-comment"></i>52</a>
+														<a href="#"><i class="ti-comment"></i>{{$reviews->where('comment', '')->count()}}</a>
 													</div>
 												</div>
 
 											</div>
-
-											<!-- Single Review -->
-											<div class="review-box">
-												<div class="review-thumb">
-													<img src="assets/img/user-2.jpg" class="img-responsive img-circle" alt="" />
-												</div>
-
-												<div class="review-box-content">
-													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>4.4/<span>5</span></p>
-													</div>
-													<div class="review-user-info">
-														<h4>Archita Singh</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
-													</div>
-													<div class="review-lc text-right">
-														<a href="#"><i class="ti-heart"></i>65</a>
-														<a href="#"><i class="ti-comment"></i>78</a>
-													</div>
-												</div>
-
-											</div>
-
-											<!-- Single Review -->
-											<div class="review-box">
-												<div class="review-thumb">
-													<img src="assets/img/user-3.jpg" class="img-responsive img-circle" alt="" />
-												</div>
-
-												<div class="review-box-content">
-													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>5.0/<span>5</span></p>
-													</div>
-													<div class="review-user-info">
-														<h4>Devesh Patri</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
-													</div>
-													<div class="review-lc text-right">
-														<a href="#"><i class="ti-heart"></i>110</a>
-														<a href="#"><i class="ti-comment"></i>47</a>
-													</div>
-												</div>
-
-											</div>
-
-											<!-- Single Review -->
-											<div class="review-box">
-												<div class="review-thumb">
-													<img src="assets/img/user-4.jpg" class="img-responsive img-circle" alt="" />
-												</div>
-
-												<div class="review-box-content">
-													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>4.9/<span>5</span></p>
-													</div>
-													<div class="review-user-info">
-														<h4>Ruchi Sethi</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
-													</div>
-													<div class="review-lc text-right">
-														<a href="#"><i class="ti-heart"></i>120</a>
-														<a href="#"><i class="ti-comment"></i>36</a>
-													</div>
-												</div>
-
-											</div>
-
-											<!-- Single Review -->
-											<div class="review-box">
-												<div class="review-thumb">
-													<img src="assets/img/user-5.jpg" class="img-responsive img-circle" alt="" />
-												</div>
-
-												<div class="review-box-content">
-													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>4.8/<span>5</span></p>
-													</div>
-													<div class="review-user-info">
-														<h4>Duke Divalkis</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
-													</div>
-													<div class="review-lc text-right">
-														<a href="#"><i class="ti-heart"></i>80</a>
-														<a href="#"><i class="ti-comment"></i>70</a>
-													</div>
-												</div>
-
-											</div>
-
-											<!-- Single Review -->
-											<div class="review-box">
-												<div class="review-thumb">
-													<img src="assets/img/user-6.jpg" class="img-responsive img-circle" alt="" />
-												</div>
-
-												<div class="review-box-content">
-													<div class="reviewer-rate">
-														<p><i class="fa fa-star cl-warning"></i>4.7/<span>5</span></p>
-													</div>
-													<div class="review-user-info">
-														<h4>Shilka Rai</h4>
-														<p>Et Harum Quidem Rerum Facilis Est Et Expedita Distinctio. Nam Libero Tempore, Cum Soluta Nobis Est Eligendi Optio Cumque Nihil Impedit Quo Minus Id Quod Maxime Placeat Facere Possimus</p>
-													</div>
-													<div class="review-lc text-right">
-														<a href="#"><i class="ti-heart"></i>120</a>
-														<a href="#"><i class="ti-comment"></i>140</a>
-													</div>
-												</div>
-
-											</div>
+											@endforeach
 
 										</div>
 									</div>
@@ -495,51 +386,13 @@
 										</div>
 										<div class="tr-single-body">
 											<ul class="gallery-list">
+												@foreach($farmDetails->getMedia as $photoMedia)
 												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-1.jpg">
-														<img src="assets/img/destination/des-1.jpg" class="img-responsive" alt="">
+													<a data-fancybox="gallery" href="#">
+														<img src="{{$photoMedia->getUrl()}}" class="img-responsive" alt="">
 													</a>
 												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-2.jpg">
-														<img src="assets/img/destination/des-2.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-3.jpg">
-														<img src="assets/img/destination/des-3.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-4.jpg">
-														<img src="assets/img/destination/des-4.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-5.jpg">
-														<img src="assets/img/destination/des-5.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-6.jpg">
-														<img src="assets/img/destination/des-6.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-7.jpg">
-														<img src="assets/img/destination/des-7.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-8.jpg">
-														<img src="assets/img/destination/des-8.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
-												<li>
-													<a data-fancybox="gallery" href="assets/img/destination/des-9.jpg">
-														<img src="assets/img/destination/des-9.jpg" class="img-responsive" alt="">
-													</a>
-												</li>
+												@endforeach
 											</ul>
 										</div>
 									</div>
@@ -555,7 +408,7 @@
 						<!-- Tourist Overview -->
 						<div class="tr-single-box">
 							<div class="tr-single-header">
-								<h4>Bali, Indonesia<sup class="cl-success">NewYork</sup></h4>
+								<h4>{{$farmDetails->location}}<sup class="cl-success">Tanzania</sup></h4>
 							</div>
 
 							<div class="tr-single-body">
@@ -567,7 +420,7 @@
 													<i class="ti-user"></i>
 												</div>
 												<div class="icon-box-text">
-													$120/person
+													{{$farmDetails->price}}/person
 												</div>
 											</a>
 										</div>
@@ -580,13 +433,13 @@
 													<i class="ti-timer"></i>
 												</div>
 												<div class="icon-box-text">
-													May - July
+													{[$farmDetails->timeline]}
 												</div>
 											</a>
 										</div>
 									</li>
 
-									<li>
+									<!-- <li>
 										<div class="icon-box-icon-block">
 											<a href="#">
 												<div class="icon-box-round">
@@ -610,7 +463,7 @@
 												</div>
 											</a>
 										</div>
-									</li>
+									</li> -->
 
 									<li>
 										<div class="icon-box-icon-block">
@@ -619,7 +472,7 @@
 													<i class="ti-comment-alt"></i>
 												</div>
 												<div class="icon-box-text">
-													22 comments
+													{{$farmDetails->review->count()}} comments
 												</div>
 											</a>
 										</div>
@@ -632,7 +485,7 @@
 													<i class="ti-heart"></i>
 												</div>
 												<div class="icon-box-text">
-													20 Likes
+													{{$farmDetails->review->where('rating', 5)->count()}} 5 star ratings
 												</div>
 											</a>
 										</div>
@@ -650,20 +503,20 @@
 									<div class="meta-item meta-comment fl-right">
 										<div class="view-box">
 											<div class="fl-right">
-												<h4 class="font-20"><span class="theme-cl font-20">$</span>216<sub>/Per Persion</sub></h4>
+												<h4 class="font-20"><span class="theme-cl font-20">$</span>{{$farmDetails->price}}<sub>/Per Persion</sub></h4>
 											</div>
 										</div>
 									</div>
 									<div class="meta-item meta-author">
 										<div class="hotel-review entry-location">
 											<span class="review-status bg-success"><i class="ti-check"></i></span>
-											<h6><span class="cl-success font-bold">Good</span>1362 Review</h6>
+											<h6><span class="cl-success font-bold">Good</span>{{$farmDetails->review->whereBetween('rating', [4,5])->count()}} Review</h6>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="tr-single-body">
-								<form class="book-form" method='POST' action='{{ url('booking') }}'>
+								<form class="book-form" method="POST" action="{{ url('booking') }}">
                                     @csrf
 									<div class="row">
 										<div class="col-xs-12">

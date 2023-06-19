@@ -79,7 +79,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia
 
     public function userFarms(): HasMany
     {
-        return $this->hasMany(userFarms::class);
+        return $this->hasMany(userFarms::class, 'user_id');
     }
 
     public function registerMediaCollections(): void

@@ -39,15 +39,15 @@ class farm extends Model implements HasMedia
     }
     public function reservation(): HasMany
     {
-        return $this->hasMany(reservation::class);
+        return $this->hasMany(reservation::class, 'farm');
     }
     public function review(): HasMany
     {
-        return $this->hasMany(review::class);
+        return $this->hasMany(review::class, 'farm');
     }
 
     public function userFarms(): HasMany
     {
-        return $this->hasMany(user_farms::class);
+        return $this->hasMany(userFarms::class);
     }
 }

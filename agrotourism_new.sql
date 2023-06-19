@@ -32,7 +32,7 @@ CREATE TABLE `reviews` (
     `user_name` varchar(50) DEFAULT NULL,
     `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
     PRIMARY KEY (id),
-    FOREIGN KEY (farm) REFERENCES farms (id),
+    FOREIGN KEY (farm) REFERENCES farms (id)
 );
 CREATE TABLE `amenities`(
     `id` int(11) NOT NULL AUTO_INCREMENT,

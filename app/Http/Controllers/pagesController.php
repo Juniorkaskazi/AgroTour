@@ -13,7 +13,8 @@ class pagesController extends Controller
     public function index(){
         return view('index', [
             'farm_details' => farm::with(['media', 'review','userFarms'])->latest()->take(6)->get(),
-            'farm_tourGuides' => User::with(['media', 'userFarms'])->take(3)->get(),
+            'farm_tourGuides' => User::with(['media', 'userFarms'])->take(1)->get(),
+            'farm_image' => farm::with('media')->get(),
         ]);
     }
 
@@ -31,10 +32,12 @@ class pagesController extends Controller
         }
     }
 
-    public function viewFarm(Request $request){
+    public function viewFarm(Request $request, $farmId){
       return view('destination-detail', [
         'farmDetails' => farm::with(['media', 'review','userFarms'])->where('id', '=',$farmId)->get(),
-        'farmGuide' => User::with(['media', 'userFarms'])->oldest()->take(1)->get(), $farmId
+        'farmGuide' => User::with(['media', 'userFarms'])->oldest()->take(1)->get(), 
+        'farmId' => $farmId,
+        'farm_image' => farm::with('media')->get()
       ]);  
     }
 }
